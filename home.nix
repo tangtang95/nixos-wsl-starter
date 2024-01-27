@@ -8,7 +8,7 @@
   ...
 }: let
   unstable-packages = with pkgs.unstable; [
-    # FIXME: select your core binaries that you always want on the bleeding-edge
+    # select your core binaries that you always want on the bleeding-edge
     bat
     bottom
     coreutils
@@ -37,7 +37,7 @@
   ];
 
   stable-packages = with pkgs; [
-    # FIXME: customize these stable packages to your liking for the languages that you use
+    # customize these stable packages to your liking for the languages that you use
 
     # key tools
     gh # for bootstrapping
@@ -98,7 +98,6 @@ in {
     homeDirectory = "/home/${username}";
 
     sessionVariables.EDITOR = "lvim";
-    # FIXME: set your preferred $SHELL
     sessionVariables.SHELL = "/etc/profiles/per-user/${username}/bin/zsh";
   };
 
@@ -121,7 +120,6 @@ in {
     nix-index.enableZshIntegration = true;
     nix-index-database.comma.enable = true;
 
-    # FIXME: disable this if you don't want to use the starship prompt
     starship.enable = true;
     starship.settings = {
       aws.disabled = true;
@@ -137,7 +135,6 @@ in {
       hostname.style = "bold green";
     };
 
-    # FIXME: disable whatever you don't want
     fzf.enable = true;
     fzf.enableZshIntegration = true;
     lsd.enable = true;
@@ -160,8 +157,8 @@ in {
         side-by-side = true;
         navigate = true;
       };
-      userEmail = ""; # FIXME: set your git email
-      userName = ""; #FIXME: set your git username
+      userEmail = "5919707+tangtang95@users.noreply.github.com";
+      userName = "Tangtang";
       extraConfig = {
         # FIXME: uncomment the next lines if you want to be able to clone private https repos
         # url = {
@@ -185,7 +182,6 @@ in {
       };
     };
 
-    # FIXME: This is my .zshrc - you can fiddle with it if you want
     zsh = {
       enable = true;
       autocd = true;
@@ -223,18 +219,6 @@ in {
         gc = "nix-collect-garbage --delete-old";
         refresh = "source ${config.home.homeDirectory}/.zshrc";
         show_path = "echo $PATH | tr ':' '\n'";
-
-        # FIXME: add more git aliases here if you want them
-        gapa = "git add --patch";
-        grpa = "git reset --patch";
-        gst = "git status";
-        gdh = "git diff HEAD";
-        gp = "git push";
-        gph = "git push -u origin HEAD";
-        gco = "git checkout";
-        gcob = "git checkout -b";
-        gcm = "git checkout master";
-        gcd = "git checkout develop";
 
         pbcopy = "/mnt/c/Windows/System32/clip.exe";
         pbpaste = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command 'Get-Clipboard'";
